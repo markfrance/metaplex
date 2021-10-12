@@ -17,7 +17,8 @@
     "lint": "eslint 'packages/*/{src,test}/**/*.ts' && prettier -c 'packages/*/{src,test}/**/*.ts'",
     "lint:fix": "eslint --fix 'packages/*/{src,test}/**/*.ts' && prettier --write 'packages/*/{src,test}/**/*.{ts,tsx}'",
     "format:fix": "lerna run format:fix",
-    "deploy": "run-s deploy:docs build deploy:apps && gh-pages -d docs",
+    "deploy:gh": "gh-pages -d ../../metaplex/js/build/web --repo https://github.com/markfrance/metaplex -t true",
+    "deploy": "yarn build && yarn deploy:gh",
     "deploy:docs": "lerna run docs",
     "deploy:apps": "lerna run deploy:app",
     "test": "lerna run test --concurrency 1 --stream"
